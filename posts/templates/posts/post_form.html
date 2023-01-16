@@ -5,7 +5,7 @@
 
 {% block post_content %}
 	<center>
-	<h1 class="btn-primary py-2">Create New Post</h1>
+	<h2 class="my-3">Create New Post</h2>
 		<form method="POST" action="{% url 'posts:create' %}" id="postForm" enctype="multipart/form-data">
 			{% csrf_token %}
 
