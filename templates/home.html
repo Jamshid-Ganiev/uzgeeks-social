@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+
+{% block title %} Home Page {% endblock %}
+
+{% block content %}
+<div class="row">
+    <h1 class="welcome-to">Welcome to Uzgeeks-social!</h1>
+    <div class="container">
+        <h1 class="go-to-groups btn bg-warning btn-warning btn-large"><a style="text-decoration:none" href="{% url 'groups:all' %}"><strong>Go to Groups</strong></a></h1>
+    </div>
+</div>
+    
+{% endblock %}

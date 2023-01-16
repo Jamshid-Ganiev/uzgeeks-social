@@ -1,0 +1,24 @@
+{% extends "posts/post_base.html" %}
+{% load crispy_forms_tags %}
+
+{% block title %}Post Form Page{% endblock %}
+
+{% block post_content %}
+	<center>
+	<h1 class="btn-primary py-2">Create New Post</h1>
+		<form method="POST" action="{% url 'posts:create' %}" id="postForm" enctype="multipart/form-data">
+			{% csrf_token %}
+
+			<div class="btn btn-outline-info py-2">
+				<h5>{{ form.group | as_crispy_field }}</h5>
+			</div>
+			
+			<h1></h1>
+
+			<section>
+				<h5>{{ form.message | as_crispy_field }}</h5>
+			</section>	
+				<button type="submit" class="btn btn-success btn-lg px-5"><strong><h5>Post</h5></strong></button>
+		</form>
+	</center>
+{% endblock %}
