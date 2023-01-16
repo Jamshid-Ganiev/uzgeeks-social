@@ -18,7 +18,7 @@ kombu==5.2.4
 Markdown==3.4.1
 Pillow==9.4.0
 prompt-toolkit==3.0.36
-psycopg2==2.9.5
+psycopg2-binary==2.9.5
 pycparser==2.21
 pytz==2022.7.1
 six==1.16.0
