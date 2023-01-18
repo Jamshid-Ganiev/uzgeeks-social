@@ -82,3 +82,19 @@ textarea {
 .welcome-username {
   color: darkorange;
 }
+
+.profile-edit-button{
+  background-color: #A0C3D2;
+}
+
+.profile-info{
+  background-color: #FFEBB7;
+}
+
+.edit-profile-button {
+  background-color: #FF6E31;
+}
+
+.login-background-color {
+  background-color: #BFEAF5;
+}

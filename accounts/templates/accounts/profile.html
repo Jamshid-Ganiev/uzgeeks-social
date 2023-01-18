@@ -7,15 +7,18 @@
         <button class="btn btn-outline-dark">
         <img class="profile-pic" alt="Profile picture" src="{{ user.profile_picture.url }}">
         </button>
-        <span class="name mt-3">{{ user.first_name }} {{ user.last_name }}</span>
-        <span class="idd">@{{ user.username }}</span>
-        <span class="idd">{{ user.email }}</span>
-        <div class=" d-flex mt-2">
-            <a class="btn btn-dark" href="{% url 'accounts:profile-edit' %}">Edit Profile</a>
-        </div>
-        <div class="px-2 rounded mt-4 date">
-            <span class="join">Joined: {{ user.date_joined|date:"M d, Y" }}</span>
-        </div>
+        <button class="p-4 mt-2 profile-info">
+            <div class="bg-light px-5">
+                <h5 class="name mt-1">fullname: {{ user.first_name }} {{ user.last_name }}</h5>
+                <h5 class="idd">username: <span class="text-warning">@{{ user.username }}</span></h5>
+                <h5 class="idd">{{ user.email }}</h5>
+                <div class="px-2 rounded mb-4 date">
+                    <span class="join">Joined: {{ user.date_joined|date:"M d, Y" }}</span>
+                </div>
+            </div>
+
+            <h5><a class="btn btn-dark px-5 edit-profile-button" href="{% url 'accounts:profile-edit' %}">Edit Profile</a></h5>
+        </button>
     </div>
 
 {% endblock %}

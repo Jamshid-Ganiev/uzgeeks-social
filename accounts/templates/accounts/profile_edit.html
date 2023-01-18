@@ -4,16 +4,22 @@
 {% block title %}Update Profile Page{% endblock %}
 
 {% block content %}
-  <h2>Edit Profile </h2>
+<center>
   <div class="row">
-    <div class="col-5">
-      <form method="post" enctype="multipart/form-data">
+    <div class="col">
+      <h2>Edit Profile </h2>
+      <form method="post" enctype="multipart/form-data" class="btn btn-light">
         {%  csrf_token %}
-        <h4>{{ form | crispy }}</h4>
+        <h5 class="text-dark mt-2">{{ form.username | as_crispy_field }}</h5>
+        <h5>{{ form.first_name | as_crispy_field }}</h5>
+        <h5>{{ form.last_name | as_crispy_field }}</h5>
+        <h5>{{ form.email | as_crispy_field }}</h5>
+        <h5 class="profile-edit-button btn px-5 mt-3 text-dark">{{ form.profile_picture | as_crispy_field }}</h5>
         <br>
-        <button type="submit" class="ms-3 btn btn-outline-success" >Save Changes</button>
+        <button type="submit" class="btn btn-outline-success px-5 my-3" >Save Changes</button>
       </form>
     </div>
   </div>
+</center>
 
 {% endblock %}

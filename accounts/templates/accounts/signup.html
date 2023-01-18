@@ -1,22 +1,24 @@
 {% extends "base.html" %}
 {% load crispy_forms_tags %}
+{% load static %}
 
 {% block title %}SignUp Page{% endblock %}
 
 {% block content %}
-
-    <center>
-        <h1>Sign Up</h1>
-        <div class="col-4 container ">
-            <form method='post' action="{% url 'accounts:signup' %}">
-                {% csrf_token %}
-
-                {{ form | crispy }}
-
-                <br>
-                <button class="btn btn-primary" type="submit">Submit</button>
-            </form>
+        <div class="row">
+            <div class="col-md-6">
+                <img src='{% static "logo/uzgeeks-logo.png" %}' alt="uzgeeks-logo.img">
+            </div>
+            <div class="col-md-4 container btn btn-light text-dark px-4 float-right">
+                <h1 class="bg-warning py-1">Sign Up</h1>
+                <form method='post' action="{% url 'accounts:signup' %}" autocomplete="off">
+                    {% csrf_token %}
+    
+                    {{ form | crispy }}
+    
+                    <br>
+                    <button class="btn btn-primary px-5" type="submit">Submit</button>
+                </form>
+            </div>
         </div>
-    </center>
-
 {% endblock %}
