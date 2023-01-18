@@ -1,19 +1,30 @@
 {% extends "base.html" %}
 {% load crispy_forms_tags %}
+{% load static %}
 
 {% block title %}Login Page{% endblock %}
 
 {% block content %}
 <div>
-  <h1>Login</h1>
+
   <div class="row">
-    <div class="col-4">
-      <form method="post">
+
+    <div class="col-lg-7">
+      <img src='{% static "logo/uzgeeks-logo.png" %}' alt="uzgeeks-logo.img">
+    </div>
+
+    <div class="col-lg-4 text-dark pl-4 pt-4 login-background-color">
+      <center>
+        <h1>Login</h1>
+        <form method="post">
         {% csrf_token %}
         {{ login_form | crispy }}
-        <button type="submit" class="btn btn-primary" >Log in</button> <span class="ms-4">Not a member yet? Then, <a href="{% url 'accounts:signup' %}" class="btn btn-outline-success">Sign Up</a></span>
+        <button type="submit" class="btn btn-primary px-4 my-3 px-5" >Log in</button><br> 
+        <span>Not a member yet?  <a href="{% url 'accounts:signup' %}" class="text-dark btn btn-warning px-4 btn-outline-success">Sign Up</a></span>
       </form>
+      </center>
     </div>
+
   </div>
 </div>
 {% endblock %}

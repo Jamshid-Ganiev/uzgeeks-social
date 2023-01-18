@@ -4,9 +4,14 @@ from .models import CustomUser
 
 
 class UserCreateForm(forms.ModelForm):
+    email = forms.CharField(max_length=75, required=True)
     class Meta:
         model = CustomUser
         fields = ('username', 'first_name', 'last_name', 'email', 'password')
+        widgets = {'password': forms.PasswordInput()}
+        help_texts = {
+            'username': None,
+        }
 
     def save(self, commit=True):
         # parent class ni save metodi chaqiriladi
@@ -30,3 +35,6 @@ class UserUpdateForm(forms.ModelForm):
     class Meta:
         model = CustomUser
         fields = ('username', 'first_name', 'last_name', 'email', 'profile_picture')
+        help_texts = {
+            'username': None,
+        }
