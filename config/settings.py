@@ -22,7 +22,7 @@ SECRET_KEY = env('SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = env('DEBUG')
 
-ALLOWED_HOSTS = ["*"]
+ALLOWED_HOSTS = ["www.uzgeeks-social.online", "uzgeeks-social.online", "0.0.0.0", "127.0.0.1"]
 
 LOGIN_URL = 'accounts:login'
 
@@ -46,6 +46,9 @@ INSTALLED_APPS = [
     "groups",
     "posts"
 ]
+
+CRISPY_ALLOWED_TEMPLATE_PACKS = "bootstrap5"
+CRISPY_TEMPLATE_PACK = "bootstrap5"
 
 MIDDLEWARE = [
     "django.middleware.security.SecurityMiddleware",
