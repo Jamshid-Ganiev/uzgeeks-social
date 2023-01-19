@@ -17,8 +17,8 @@
       <center>
         <h1>Login</h1>
         <form method="post">
-        {% csrf_token %}
-        {{ login_form | crispy }}
+          {% csrf_token %}
+          {{ login_form | crispy }}
         <button type="submit" class="btn btn-primary px-4 my-3 px-5" >Log in</button><br> 
         <span>Not a member yet?  <a href="{% url 'accounts:signup' %}" class="text-dark btn btn-warning px-4 btn-outline-success">Sign Up</a></span>
       </form>

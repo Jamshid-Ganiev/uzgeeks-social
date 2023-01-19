@@ -1,4 +1,3 @@
-// SOURCE: http://codepen.io/Thibka/pen/mWGxNj
 var canvas = document.getElementById('canvas'),
   context = canvas.getContext('2d'),
   canvasWidth = (window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth),
@@ -12,7 +11,6 @@ var persons = [],
   birthToGive = 25;
 
 var colors = [];
-/* Galactic Tea - http://www.colourlovers.com/palette/1586746/Galactic_Tea*/
 colors[2] = [];
 colors[2]['background'] = '#2F294F';
 colors[2][1] = 'rgba(74,49,89,';
@@ -175,14 +173,13 @@ function animate() {
 
   context.beginPath();
 
-  // Création d'une copie de l'array persons
   persons_order = persons.slice(0);
-  // Tri par ordre de position sur l'axe y (afin de gérer les z-index)
+  
   persons_order.sort(function(a, b) {
     return a.y - b.y
   });
 
-  // Paint les instances dans l'ordre trié
+  
   for (var i in persons_order) {
     var u = persons_order[i].id;
     persons[u].walk();
