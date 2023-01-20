@@ -24,7 +24,7 @@ DEBUG = env('DEBUG')
 
 ALLOWED_HOSTS = ["www.uzgeeks-social.online", "uzgeeks-social.online", "0.0.0.0", "127.0.0.1"]
 
-CSRF_TRUSTED_ORIGINS = ["https://www.uzgeeks-social.online", "https://uzgeeks-social.online"]
+CSRF_TRUSTED_ORIGINS = ["https://www.uzgeeks-social.online", "https://uzgeeks-social.online", '68.183.90.246']
 
 LOGIN_URL = 'accounts:login'
 
