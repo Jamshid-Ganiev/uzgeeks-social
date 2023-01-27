@@ -24,7 +24,7 @@ DEBUG = env('DEBUG')
 
 ALLOWED_HOSTS = ["www.uzgeeks-social.online", "uzgeeks-social.online", "0.0.0.0", "127.0.0.1"]
 
-CSRF_TRUSTED_ORIGINS = ["https://www.uzgeeks-social.online", "https://uzgeeks-social.online", '68.183.90.246']
+CSRF_TRUSTED_ORIGINS = ["https://www.uzgeeks-social.online", "https://uzgeeks-social.online", 'http://68.183.90.246']
 
 LOGIN_URL = 'accounts:login'
 
@@ -44,6 +44,7 @@ INSTALLED_APPS = [
     "crispy_bootstrap5",
 
     # my apps
+    "celery",
     "accounts",
     "groups",
     "posts"
@@ -155,5 +156,3 @@ EMAIL_HOST_PASSWORD = env('EMAIL_HOST_PASSWORD')
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
 EMAIL_USE_SSL = False
-
-CELERY_BROKER_URL=env("CELERY_BROKER_URL")

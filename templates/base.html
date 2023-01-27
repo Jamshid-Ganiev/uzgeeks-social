@@ -24,6 +24,7 @@
         <a class="navbar-brand ms-5" href="{% url 'home_page' %}">Uz-Geeks Social</a>
         
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            Menu
             <span class="navbar-toggler-icon"></span>
         </button>
 
@@ -36,7 +37,7 @@
                     <a class="nav-link mx-2" href="{% url 'groups:all' %}">Groups</a>
                 </li>
                 
-                {% if request.user.is_authenticated %}
+                
                 <li class="nav-item">
                     <a class="nav-link mx-2" href="{% url 'posts:create' %}">Post</a>
                 </li>
@@ -44,7 +45,7 @@
                     <a class="nav-link mx-2" href="{% url 'groups:create' %}">Create Group</a>
                 </li>
             </ul>
-
+            {% if request.user.is_authenticated %}
             <div class="me-5">
             <!--RIGHT SIDE IN THE NAVBAR-->
                 <ul class="navbar-nav list-unstyled">
