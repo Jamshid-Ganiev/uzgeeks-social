@@ -1,8 +1,8 @@
 from django.db.models.signals import post_save
 from django.dispatch import receiver
 
-from accounts.models import CustomUser
-from accounts.tasks import send_email
+from models import CustomUser
+from tasks import send_email
 
 
 @receiver(post_save, sender=CustomUser)
