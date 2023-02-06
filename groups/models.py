@@ -1,5 +1,4 @@
 from django.db import models
-from django.conf import settings
 from django.urls import reverse
 from django.utils.text import slugify
 
@@ -9,16 +8,10 @@ from accounts.models import CustomUser
 from markdown import markdown
 
 
-# https://docs.djangoproject.com/en/2.0/howto/custom-template-tags/#inclusion-tags
-# This is for the in_group_members check template tag
-from django import template
-register = template.Library()
-
-
 class Group(models.Model):
     name = models.CharField(max_length=255, unique=True)
     slug = models.SlugField(allow_unicode=True, unique=True)
-    description = models.TextField(blank=True, default='')
+    description = models.TextField(blank=False, default='')
     description_html = models.TextField(editable=False, default='', blank=True)
     members = models.ManyToManyField(CustomUser, through="GroupMember")
 

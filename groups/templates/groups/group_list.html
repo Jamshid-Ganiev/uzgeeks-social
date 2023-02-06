@@ -6,7 +6,7 @@
 		{% if user.is_authenticated %}
 		<h2>
 			Welcome back
-			<a class="welcome-username" style="text-decoration:none" href="{% url 'posts:for_user' username=user.username %}">@{{user.username }}</a>
+			<a class="welcome-username" style="text-decoration:none" href="{% url 'posts:for_user' username=user.username %}">@{{ user.username }}</a>
 		</h2>
 
     {% endif %}
