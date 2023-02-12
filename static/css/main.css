@@ -1,15 +1,30 @@
+/* ANIMATON */
+@keyframes color-change {
+  0% { color: #301E67; }
+  15% { color: #B05A7A; }
+  25% { color: #222222; }
+  35% { color: #E8AA42; }
+  55% { color: #31C6D4; }
+  55% { color: #FF7B54; }
+  65% { color: #FF1E1E; }
+  75% { color: #89CFFD; }
+  85% { color: #002B5B; }
+  95% { color: #2C3333; }
+  100% { color: #38E54D; }
+}
+
 .mycontent{ 
     padding: 80px 20px 80px 40px;
-    border: 12px solid rgb(15, 242, 208);
+    border: 12px solid #B7D3DF;
   }
   
   html, body {
     height: 100%;
     width: 100%;
     overflow: auto;
-    background: #000000;
+    background: #FFFFFF;
     margin: 0;
-    color: antiquewhite;
+    color: rgb(19, 17, 15);
     padding-top: 15px;
     padding: 0;
   }
@@ -17,12 +32,21 @@
  .nav-item {
   font-size: 1.45rem;
  }
-
+ .nav-link{
+  color: #1A120B;
+ }
  .profile-nav, .login-nav {
   height: 50px;
-  width: 120px;
+  width: 150px;
   font-size: 1.4rem;
   margin-left: 5px;
+  padding-right: 5px;
+ }
+
+ .profile-icon {
+  padding-right: 8px;
+  font-size: 25px;
+  padding-left: 0;
  }
   
   #note {
@@ -37,21 +61,23 @@
     font-family: Arial;
   }
 
-  .profile-pic {
-    width: 250px;
-    height: 250px;
-    border-radius: 50%;
+.profile-pic {
+  width: 250px;
+  height: 250px;
+  border-radius: 50%;
 }
 
+.small_profile_pic{
+  width: 40px;
+  border-radius: 50%;
+}
 
 .go-to-groups{
   width:280px;
   height: 70px;
   font-weight: bold;
   font-size:2.2rem;
-  background-color:bisque;
-  /* border-top-right-radius: 100%;
-  border-bottom-right-radius: 100%; */
+  background-color:rgb(9, 8, 7);
 }
 
 .welcome-to {
@@ -59,14 +85,14 @@
 }
 
 .navbar-brand {
-  font-family: "Ubuntu", serif;
-  font-size: 2.7rem;
-  font-weight: 900;
-  color: rgb(4, 153, 245);
+  font-family: "Courgette", "Ubuntu", serif;
+  font-size: 2.8rem;
+  font-weight: 600;
+  animation: color-change 8s infinite alternate;
 }
 
-.navbar {
-  background-color: #C0EEE4;
+#navbar {
+  background-color: #E9E8E8;
 }
 
 textarea {
@@ -76,7 +102,7 @@ textarea {
   font-family:sans-serif;
   font-style: inherit;
   padding: 5px 5px 2px 5px;
-  background-color: #E3F6FF;
+  background-color: #C4D7E0;
 }
 
 .welcome-username {
@@ -97,4 +123,13 @@ textarea {
 
 .login-background-color {
   background-color: #BFEAF5;
+}
+
+.active {
+  font-weight: 600;
+  color: #0A2647;
+}
+
+.stars-icon {
+  animation: color-change 5s infinite alternate;
 }
