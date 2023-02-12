@@ -4,17 +4,25 @@
 	<div class="media-body">
 		<h5>{{ post.message_html|safe }}</h5>
 			{% if post.group %}
-			<span class="group-name btn btn-light"><strong>written by @{{ post.user.username }}</strong></span>
+			<a style="text-decoration: none;" href="{% url 'posts:single' username=post.user.username pk=post.pk %}">
+				<span class="group-name btn btn-light">
+					<strong>
+						Author:
+						<img class="small_profile_pic" src="{{ post.user.profile_picture.url }}" alt="profile img"> @{{ post.user.username }}
+					</strong>
+				</span>
+				<time class="time"><i class="bi bi-clock"></i>{{ post.created_at }}</time>
+			</a>
 			{% endif %}
-			<span class="btn btn-light">on</span>
-			<time class="time btn btn-light text-pimary"><a style="text-decoration:none" href="{% url 'posts:single' username=post.user.username pk=post.pk %}">{{ post.created_at }}</a></time>
-		</h5>
-		<div class="media-footer">
 			{% if user.is_authenticated and post.user == user and not hide_delete %}
-				<a href="{% url 'posts:delete' pk=post.pk %}" title="delete" class="px-5 btn btn-lg btn-outline-danger text-light my-3">
-					<h4>delete</h4>
+				<a href="{% url 'posts:delete' pk=post.pk %}" title="delete" class="btn btn-secondary py-0 px-2">
+					<i class="bi bi-trash"></i>delete
+				</a>
+				<a href="#" title="delete" class="btn btn-secondary py-0 px-2 ml-4">
+					<i class="bi bi-pencil-square"></i>edit
 				</a>
 			{% endif %}
-		</div>
+		</h5>
+		<hr>
 	</div>
 </div>
