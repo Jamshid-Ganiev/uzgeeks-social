@@ -1,7 +1,7 @@
 /* ANIMATON */
 @keyframes color-change {
   0% { color: #301E67; }
-  0% { color: #345E67; }
+  10% { color: #345E67; }
   15% { color: #B05A7A; }
   25% { color: #222222; }
   35% { color: #E8AA42; }
@@ -123,7 +123,7 @@ textarea {
 }
 
 .login-background-color {
-  background-color: #BFEAF5;
+  background-color: #235865;
 }
 
 .active {

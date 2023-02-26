@@ -5,20 +5,26 @@
 {% block title %}SignUp Page{% endblock %}
 
 {% block content %}
-        <div class="row">
-            <div class="col-md-6">
-                <img src='{% static "logo/uzgeeks-logo.png" %}' alt="uzgeeks-logo.img">
-            </div>
-            <div class="col-md-4 container btn btn-light text-dark px-4 float-right">
-                <h1 class="bg-warning py-1">Sign Up</h1>
-                <form method='post' action="{% url 'accounts:signup' %}" autocomplete="off">
-                    {% csrf_token %}
-    
-                    {{ form | crispy }}
-    
-                    <br>
-                    <button class="btn btn-primary px-5" type="submit">Submit</button>
-                </form>
-            </div>
-        </div>
+<div class="container-fluid">
+
+  <div class="row justify-content-center align-items-center signup-row">
+
+    <div class="col-lg-6 text-center">
+      <img src='{% static "logo/uzgeeks-logo.png" %}' alt="uzgeeks-logo.img" class="img-fluid">
+    </div>
+
+    <div class="col-lg-4 container btn btn-light text-dark px-4 py-4 signup-background-color">
+      <h1 class="text-center mb-4 bg-warning py-2">Sign Up</h1>
+      <form method='post' action="{% url 'accounts:signup' %}" autocomplete="off">
+        {% csrf_token %}
+
+        {{ form | crispy }}
+
+        <button class="btn btn-primary btn-block my-3" type="submit">Submit</button>
+      </form>
+      <p class="text-center">Already have an account? <a href="{% url 'accounts:login' %}" class="text-dark">Log in</a></p>
+    </div>
+
+  </div>
+</div>
 {% endblock %}
