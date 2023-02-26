@@ -8,10 +8,8 @@
 			Welcome back
 			<a class="welcome-username" style="text-decoration:none" href="{% url 'posts:for_user' username=user.username %}">@{{ user.username }}</a>
 		</h2>
-
     {% endif %}
 			<h2>Groups</h2>
-
 			<p>Welcome to the Groups Page! <br>Select a Group with a shared interest!</p>
 	</div>
 	{% if user.is_authenticated %}
@@ -22,31 +20,33 @@
 
 {% block group_content %}
 <div class="col-md-8">
-	<div class="list-group">
+	<div class="card-deck">
 		{% for group in object_list %}
-		<a href="{% url 'groups:single' slug=group.slug %}" class="list-group-item list-group-item-action flex-column align-items-start">
-			<h1 class="mb-1">{{ group.name }}</h1>
-			<h5>Group description:</h5>
-			<p class="mb-2s"><i>{{ group.description_html|safe }}</i></p>
-			<div class="d-flex w-40 justify-content-between">
-				<small class="text-muted">
-					<span class="btn btn-info">
-						{{ group.members.count }}
-					</span> 
-					<strong>member{{ group.members.count|pluralize }}</strong>
-				</small>
-
-				<small class="text-muted">
-					<span class="btn btn-dark">
-						{{ group.posts.count }}
-					</span> 
-					<strong>post{{ group.posts.count | pluralize }}</strong>
-				</small>
-
-				<span></span><span></span>
+		<div class="card">
+			<a href="{% url 'groups:single' slug=group.slug %}" class="card-img-top" style="background-image: url('{{ group.image.url }}')"></a>
+			<div class="card-body">
+				<a href="{% url 'groups:single' slug=group.slug %}">
+					<h5 class="card-title">{{ group.name }}</h5>
+				</a>
+				<p class="card-text">{{ group.description_html|safe }}</p>
+				<div class="d-flex justify-content-between align-items-center">
+					<div class="btn-group">
+						<a href="{% url 'groups:single' slug=group.slug %}" class="btn btn-sm btn-outline-secondary">View</a>
+						{% if user.is_authenticated and user.profile in group.members.all %}
+							<a href="{% url 'groups:leave' slug=group.slug %}" class="btn btn-sm btn-danger">Leave</a>
+						{% elif user.is_authenticated %}
+							<a href="{% url 'groups:join' slug=group.slug %}" class="btn btn-sm btn-success">Join</a>
+						{% endif %}
+					</div>
+					<small class="text-muted">
+						<span class="btn btn-info">
+							{{ group.members.count }}
+						</span> 
+						<strong>member{{ group.members.count|pluralize }}</strong>
+					</small>
+				</div>
 			</div>
-		</a>
-		<hr>
+		</div>
 		{% endfor %}
 	</div>
 </div>

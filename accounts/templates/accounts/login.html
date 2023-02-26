@@ -5,26 +5,35 @@
 {% block title %}Login Page{% endblock %}
 
 {% block content %}
-<div>
+<div class="container-fluid">
 
-  <div class="row">
+  <div class="row justify-content-center align-items-center login-row">
 
-    <div class="col-lg-7">
-      <img src='{% static "logo/uzgeeks-logo.png" %}' alt="uzgeeks-logo.img">
+    <div class="col-lg-6 col-md-12 col-sm-12 text-center mb-4">
+      <img src='{% static "logo/uzgeeks-logo.png" %}' alt="uzgeeks-logo.img" class="img-fluid">
     </div>
 
-    <div class="col-lg-4 text-dark pl-4 pt-4 login-background-color">
-      <center>
-        <h1>Login</h1>
-        <form method="post">
-          {% csrf_token %}
-          {{ login_form | crispy }}
-        <button type="submit" class="btn btn-primary px-4 my-3 px-5" >Log in</button><br> 
-        <span>Not a member yet?  <a href="{% url 'accounts:signup' %}" class="text-dark btn btn-warning px-4 btn-outline-success">Sign Up</a></span>
+    <div class="col-lg-4 col-md-8 col-sm-10 text-dark pl-4 pt-4 login-background-color">
+      <h1 class="text-center mb-4">Login</h1>
+      <form method="post">
+        {% csrf_token %}
+        {{ login_form | crispy }}
+        <button type="submit" class="btn btn-primary btn-block my-3" >Log in</button>
       </form>
-      </center>
+      <p class="text-center mb-0">Not a member yet? <a href="{% url 'accounts:signup' %}" class="text-dark">Sign Up</a></p>
     </div>
 
   </div>
 </div>
+
+<style>
+  .login-row {
+    height: 100vh;
+  }
+  .login-background-color {
+    background-color: #f8f9fa;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+  }
+</style>
 {% endblock %}

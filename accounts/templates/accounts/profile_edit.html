@@ -4,22 +4,38 @@
 {% block title %}Update Profile Page{% endblock %}
 
 {% block content %}
-<center>
-  <div class="row">
-    <div class="col">
-      <h2>Edit Profile </h2>
-      <form method="post" enctype="multipart/form-data" class="btn btn-light">
-        {%  csrf_token %}
-        <h5 class="text-dark mt-2">{{ form.username | as_crispy_field }}</h5>
-        <h5>{{ form.first_name | as_crispy_field }}</h5>
-        <h5>{{ form.last_name | as_crispy_field }}</h5>
-        <h5>{{ form.email | as_crispy_field }}</h5>
-        <h5 class="profile-edit-button btn px-5 mt-3 text-dark">{{ form.profile_picture | as_crispy_field }}</h5>
-        <br>
-        <button type="submit" class="btn btn-outline-success px-5 my-3" >Save Changes</button>
-      </form>
+<div class="container-fluid">
+  <div class="row justify-content-center align-items-center">
+    <div class="col-lg-6 col-md-8 col-sm-10 col-12">
+      <div class="card border-0 shadow-sm">
+        <div class="card-header bg-transparent text-center">
+          <h2>Edit Profile</h2>
+        </div>
+        <div class="card-body">
+          <form method="post" enctype="multipart/form-data" class="btn btn-light">
+            {%  csrf_token %}
+            <div class="form-group">
+              {{ form.username | as_crispy_field }}
+            </div>
+            <div class="form-group">
+              {{ form.first_name | as_crispy_field }}
+            </div>
+            <div class="form-group">
+              {{ form.last_name | as_crispy_field }}
+            </div>
+            <div class="form-group">
+              {{ form.email | as_crispy_field }}
+            </div>
+            <div class="form-group">
+              <div class="profile-edit-button btn px-5 mt-3 text-dark">
+                {{ form.profile_picture | as_crispy_field }}
+              </div>
+            </div>
+            <button type="submit" class="btn btn-primary btn-block my-3" >Save Changes</button>
+          </form>
+        </div>
+      </div>
     </div>
   </div>
-</center>
-
+</div>
 {% endblock %}
